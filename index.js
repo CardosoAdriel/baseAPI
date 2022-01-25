@@ -2,6 +2,7 @@
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
+const cors = require('cors')
 require('dotenv').config()
 
 //Configure the express to read and respond on JSON format, utilizing middlewares from express
@@ -10,8 +11,9 @@ app.use(
     extended: true,
   })
 )
-
 app.use(express.json())
+
+app.use(cors())
 
 // Routes of API
 const personRouters = require('./routes/personRoutes')
