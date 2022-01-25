@@ -1,8 +1,8 @@
 //Initial setup, imports and exports to louch of application
-require('dotenv').config()
 const express = require('express')
-const mongoose = require('mongoose')
 const app = express()
+const mongoose = require('mongoose')
+require('dotenv').config()
 
 //Configure the express to read and respond on JSON format, utilizing middlewares from express
 app.use(
@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 
 // Configure an port of express provide this application in especific port
 // And configure the mongoose, and just Initialize the application, if conection to database is successful
-const PORT = process.env.APP_PORT || 3200
+const PORT = process.env.PORT || 3200
 const DB_USER = process.env.DB_USER
 const DB_PASSWORD = process.env.DB_PASSWORD
 
@@ -38,4 +38,6 @@ mongoose
     console.log('Conection to DataBase Fail')
   })
 
-app.listen(PORT)
+app.listen(PORT, () => {
+  console.info('API is serving on port - ' + PORT)
+})
