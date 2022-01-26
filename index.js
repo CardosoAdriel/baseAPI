@@ -16,8 +16,8 @@ app.use(express.json())
 app.use(cors())
 
 // Routes of API
-const personRouters = require('./routes/personRoutes')
-app.use('/product', personRouters)
+const productRouters = require('./routes/productRoutes')
+app.use('/product', productRouters)
 
 // Configure an initial route (endpoint)
 app.get('/', (req, res) => {
